@@ -1,37 +1,8 @@
-#====================================================================================#
-# Lecture
-# Differentially expressed genes (DEGs) analysis based on negative binomial distribution
-# We will query and download data from The Cancer Genome Project (TCGA) and perform DEG analysis
-#====================================================================================#
-#=====================================================================================================================#
-#=========================#
-# How is count data made?
-#=========================#
-# Simple example script that to be run in a Linux-like environment:
-# Suppose you have sequenced sample A by paired-end sequencing
-# You have two files: A_1.fq, A_2.fq
-# You must supply reference genome sequences (FASTA) and genome annotations (GTF)
-# These files can be downloaded from ENSEMBL or UCSC
-
 # First, you must build a genome index file with your reference files
-# The genome indexes are save to the disk and only need to be generated one time for each genome/annotation combination
 # STAR --runThreadN 10 --runMode genomeGenerate --genomeDir /path/to/genomeDir --sjdbGTFfile /path/to/annotations.gtf
-
-# # Perform alignment with 'STAR' (github.com/alexdobin/STAR)
-# # Below is an example with basic options
-# # Refer the STAR manual (https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) for more information
 # STAR --runThreadN 10 --outSAMtype BAM --twopassMode Basic --readFilesIn A_1.fq A_2.fq \
 #   --sjdbGTFfile /path/to/GTF_file --genomeDir /path/to/genomeDir --quantMode GeneCounts
-
 # The output file ~.tab will contain your count data!
-#=====================================================================================================================#
-
-#====================#
-# Install required packages
-#====================#
-# Colaprico A, et al. "TCGAbiolinks: an R/Bioconductor package for integrative analysis of TCGA data." Nucleic acids research (2015): gkv1507.
-# Mounir et al. ?€œNew functionalities in the TCGAbiolinks package for the study and integration of cancer data from GDC and GTEx.?€?
-# PLoS computational biology, 15(3), e1006701.
 # Install TCGAbiolinks for querying TCGA data from GDC data portal
 # https://portal.gdc.cancer.gov/
 # https://github.com/BioinformaticsFMRP/TCGAbiolinks
@@ -40,12 +11,9 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("remotes")
 BiocManager::install("BioinformaticsFMRP/TCGAbiolinks")
 
-# Martin Morgan, Valerie Obenchain, Jim Hester and HervÃ© PagÃ¨s (2021). SummarizedExperiment: SummarizedExperiment container. R package version
-# 1.22.0. https://bioconductor.org/packages/SummarizedExperiment
 # Install SummarizedExperiment. We will use this package to process downloaded TCGA data
 BiocManager::install("SummarizedExperiment",force=TRUE)
 
-# Love, M.I., Huber, W. & Anders, S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.
 # Genome Biol 15, 550 (2014). https://doi.org/10.1186/s13059-014-0550-8
 # Install DESeq2
 BiocManager::install("DESeq2")
@@ -62,7 +30,7 @@ BiocManager::install("DESeq2")
 # https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
 #====================#
 # Set working directory
-setwd("C:\\Users\\Sunyoung\\OneDrive\\¹ÙÅÁ È­¸é\\2024_RNA_analysis_½Ç½À") # Change according to your working directory
+setwd("C:\\Users\\Sunyoung\\OneDrive\\Â¹Ã™Ã…Ã ÃˆÂ­Â¸Ã©\\2024_RNA_analysis_Â½Ã‡Â½Ã€") # Change according to your working directory
 
 # Import required packages
 library(TCGAbiolinks)
@@ -175,7 +143,7 @@ dim(dds[rowSums(counts(dds)) > 667, ])
 
 filt_dds <- dds[rowSums(counts(dds)) > 667, ]
 
-# Calculate results, deseq?•¨?ˆ˜ë¥? ?‹œ?–‰?•˜?Š”?‹¨ê³?
+# Calculate results, deseq?â€¢Â¨?Ë†ËœÃ«Â¥? ?â€¹Å“?â€“â€°?â€¢Ëœ?Å â€?â€¹Â¨ÃªÂ³?
 filt_dds <- DESeq(filt_dds)
 deseq_res <- results(
   filt_dds,
