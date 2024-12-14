@@ -30,8 +30,6 @@ BiocManager::install("DESeq2")
 # https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
 #====================#
 # Set working directory
-setwd("C:\\Users\\Sunyoung\\OneDrive\\¹ÙÅÁ È­¸é\\2024_RNA_analysis_½Ç½À") # Change according to your working directory
-
 # Import required packages
 library(TCGAbiolinks)
 library(SummarizedExperiment)
