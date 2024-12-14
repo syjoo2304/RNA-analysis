@@ -1,4 +1,3 @@
-setwd("C:\\Users\\Sunyoung\\OneDrive\\바탕 화면\\2024_유전체정보학_clustering_and_pca-20241127\\2024_유전체정보학_clustering_and_pca")
 #data loading
 gc_exp_tb<-read.delim("2024_Clustering_and_PCA_Expression.txt",
                       sep = "\t",
@@ -10,7 +9,7 @@ phe_tb<-read.delim("2024_Clustering_and_PCA_Sample_info.txt",
                    header = T,
                    stringsAsFactors = F)
 
-#homework 1
+
 library(pheatmap)
 library(RColorBrewer)
 
@@ -32,7 +31,7 @@ pheatmap(top_exp_tb,
          scale = "column",
          color = our_color)
 
-##homework2
+
 pca_results<-prcomp(top_exp_tb,
                     center = F,
                     scale = F)
@@ -45,7 +44,7 @@ plot(x = PC_values$PC1,
      pch = 19,
      main = "PCA of lung cancer cell lines")
 
-##homework3
+
 pc_variance<-pca_results$sdev
 pc_variance_norm<-pc_variance/sum(pc_variance)
 names(pc_variance_norm)<-paste0("PC", 1:length(pc_variance_norm))
@@ -56,7 +55,7 @@ barplot(pc_variance_norm[1:10],
         ylab = "Explained vaiance",
         ylim = c(0,0.25), las = 2) # "las" argument rotates axis labels
 
-##homework4
+
 pc_rotation<-pca_results$rotation
 # order() function gives the order of each value in a vector
 pc_rotation<-pc_rotation[order(pc_rotation[,1], decreasing = T),]
