@@ -3,7 +3,7 @@
 excavator1.f <- function(path.case, path.out,batch.case){
   
   dir.create(path.out)
-  path.cont = "/home/sjkim/YUHL/WES/CNV_ctrl/BAM/"
+  path.cont = "[path_to_control_bam_files]"
   setwd(path.cont) 
   bam.list.cont <- dir(pattern=".bam$") #
   bam.list.cont = bam.list.cont[1:10]  
@@ -14,7 +14,7 @@ excavator1.f <- function(path.case, path.out,batch.case){
   
   bam.l = length(bam.list.cont)+length(bam.list.case)
   
-  setwd("/home/syjoo/program/EXCAVATOR2_Package_v1.1.2")
+  setwd("[path_to_EXCAVATOR2_package]/EXCAVATOR2_Package_v1.1.2")
   
   # case
   k=1
@@ -46,16 +46,15 @@ excavator1.f <- function(path.case, path.out,batch.case){
 
 
 # patient_wes: 9 samples
-excavator1.f(path.case = "/home/DATA/YUHL/WES/FASTQ/BatchMacrogen_2/BAM/BAM_Proband", path.out = "/home/DATA/YUHL/WES/FASTQ/BatchMacrogen_2/BAM/BAM_Proband/EXCAVATOR", batch.case = "hg38_WES")
+excavator1.f(path.case = "[bam_file_dir]", path.out = "[output_dir]", batch.case = "[output_name]")
 
-#perl EXCAVATORDataPrepare.pl YUHL_Batch7_ExperimentalFilePrepare_w20k_44_15.txt --processors 59 --target MyTarget_w20000_231020 --assembly hg38
 ####################################################################################################################
 
 
 excavator2.f <- function(path.case, path.out,batch.case){
   
   dir.create(path.out)
-  path.cont = "/home/sjkim/YUHL/WES/CNV_ctrl/BAM/"
+  path.cont = "[path_to_control_bam_files]"
   setwd(path.cont) 
   bam.list.cont <- dir(pattern=".bam$") #
   bam.list.cont = bam.list.cont[1:10]  
@@ -65,7 +64,7 @@ excavator2.f <- function(path.case, path.out,batch.case){
   bam.list.case <- dir(pattern=".bam$")
   bam.l = length(bam.list.cont)+length(bam.list.case)
   
-  setwd("/home/syjoo/program/EXCAVATOR2_Package_v1.1.2")
+  setwd("[path_to_EXCAVATOR2_package]/EXCAVATOR2_Package_v1.1.2")
   
   # case
   k=1
@@ -96,8 +95,5 @@ excavator2.f <- function(path.case, path.out,batch.case){
   system(paste("perl", " ", "EXCAVATORDataAnalysis.pl"," ", path.out, "/", batch.case, "_ExperimentalFilePrepare_w20k_v2_", length(bam.list.case), "_", length(bam.list.cont), ".txt ", "--processors 6  ", " ", "--target MyTarget_w20k_240404", " ", "--assembly hg38", " ", "--output", " ", path.out, "/Excavator_w20K", " ", " --mode pooling", sep=""))
 }
 
-#perl EXCAVATORDataAnalysis.pl YUHL_Batch6_ExperimentalFilePrepare_w20k_v2_6_15.txt --processors 21 --target MyTarget_w20000_231020 
-# --assembly hg38 --output /home/sjkim/YUHL_SV/WES/Batch6/Excavator_w20K --mode pooling
-
-# patient_wes: 9 samples
-excavator2.f(path.case = "/home/DATA/YUHL/WES/FASTQ/BatchMacrogen_2/BAM/BAM_Proband", path.out = "/home/DATA/YUHL/WES/FASTQ/BatchMacrogen_2/BAM/BAM_Proband/EXCAVATOR",  batch.case = "hg38_WES")
+# patient_wes
+excavator2.f(path.case = "[bam_file_dir]", path.out = "[output_dir]",  batch.case = "[output_name]")
