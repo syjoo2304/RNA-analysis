@@ -1,4 +1,3 @@
-setwd("C:\\Users\\Sunyoung\\OneDrive\\바탕 화면\\Data\\Data")
 #Load required libraries
 library(org.Hs.eg.db)
 library(clusterProfiler)
