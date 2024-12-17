@@ -11,7 +11,7 @@ library(viridis)
 library(pheatmap)
 
 ##V1 (rough version)
-seurat_obj <-  readRDS('/home/hykim/Project/Cancer/Colon/scRNA-seq/PAIR/colon.combined.rds')
+seurat_obj <-  readRDS('[path_to_rds]/[seurat].rds')
 test.clusters <- seurat_obj$seurat_clusters
 test <- as.SingleCellExperiment(seurat_obj)
 bpe <- BlueprintEncodeData()
@@ -34,7 +34,7 @@ dev.off()
 ========================================================================
 ##subcluster
 library(Seurat)
-test <- readRDS('/home/hykim/Project/KHS/colon.acsites.singler.rds')
+test <- readRDS('[path_to_rds]/[singler_object].singler.rds')
 #install.packages('SeuratObject')
 #library(SeuratObject)
 ========================================================================
@@ -61,7 +61,7 @@ test_small.markers <- FindAllMarkers(test_small, only.pos = TRUE, min.pct = 0.25
 test_small.markers %>% group_by(cluster) %>% top_n(n = 2, wt = avg_logFC)
 epithelial.marker <- test_small.markers %>% group_by(cluster) %>% top_n(n = 2, wt = avg_logFC)
 write.table(epithelial.marker, 'epithelial_marker.txt', sep='\t',quote=F)
-write.table(epithelial.marker,"/home/syjoo/test/SingleR/epithelial.txt",col.names=T, quote=F)
+write.table(epithelial.marker,"[path_to_output]/epithelial.txt",col.names=T, quote=F)
 
 DimPlot(test_small)
 
