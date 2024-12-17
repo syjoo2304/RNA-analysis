@@ -1,4 +1,4 @@
-###Install 'nextflow' using mamba
+#### Install 'nextflow' using mamba
 mamba install nextflow 
 
 conda activate base # I installed nextfow in my base environment.
