@@ -1,4 +1,4 @@
-#Install Seurat v4 using conda
+###Install Seurat v4 using conda
 
 conda create -n seurat r-base=4.0.5
 conda install conda-forge::r-v8 
