@@ -1,1 +1,4 @@
-
+##Alignment and collapsing with isoseq, pbmm2 (pacbio minimap2)
+isoseq cluster2 flnc.fofn clustered.bam
+pbmm2 align --preset ISOSEQ --sort clustered.bam [path_to_reference]/GRCm38.p6.genome.fa clustered_mapped.bam
+isoseq collapse --do-not-collapse-extra-5exons clustered_mapped.bam clustered.bam collapsed.gff
