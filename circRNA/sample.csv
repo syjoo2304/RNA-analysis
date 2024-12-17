@@ -1,2 +1,9 @@
 sample,fastq_1,fastq_2
-sample_name,[path_to_fastq1]/BN-1_1.fastq.gz,[path_to_fastq2]/BN-1_2.fastq.gz
+BN1,[path_to_fastq1]/BN-1_1.fastq.gz,[path_to_fastq2]/BN-1_2.fastq.gz
+BN2,[path_to_fastq1]/BN-2_1.fastq.gz,[path_to_fastq2]/BN-2_2.fastq.gz
+BN3,[path_to_fastq1]/BN-3_1.fastq.gz,[path_to_fastq2]/BN-3_2.fastq.gz
+BNset4,[path_to_fastq1]/BN-set4_1.fastq.gz,[path_to_fastq2]/BN-set4_2.fastq.gz
+PTS1d1,[path_to_fastq1]/PTS1d-1_1.fastq.gz,[path_to_fastq2]/PTS1d-1_2.fastq.gz
+PTS1d2,[path_to_fastq1]/PTS1d-2_1.fastq.gz,[path_to_fastq2]/PTS1d-2_2.fastq.gz
+PTS1d3,[path_to_fastq1]/PTS1d-3_1.fastq.gz,[path_to_fastq2]/PTS1d-3_2.fastq.gz
+PTS1dset4,[path_to_fastq1]/PTS1d-set4_1.fastq.gz,[path_to_fastq2]/PTS1d-set4_2.fastq.gz
