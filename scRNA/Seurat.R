@@ -44,6 +44,7 @@ for (i in 1:length(cell_type1)) {
 sh.integrated@meta.data$cell_type2 <- cell_type2
 
 # Visalize Gene of Interest (In this case, six deafness genes) using DotPlot
+GOI <- c("Tmem145", "Coch", "Kcnq4", "Slc26a4", "Mpzl2","Myo15a")
 Idents(sh.integrated) <- "cell_type2"
 pdf("Dotplot_bymonth_vcelltype.pdf",width=10,height=10)
 DotPlot(sh.integrated, features = GOI, group.by = "cell_type2",split.by="age",cols=c(rep("blue",6)))+ RotatedAxis()+ coord_flip()
